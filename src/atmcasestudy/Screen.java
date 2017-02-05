@@ -3,9 +3,10 @@ package atmcasestudy;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class Screen extends JTextField implements ActionListener {
+public class Screen extends JTextArea implements ActionListener {
 
     public void displayMessage(String message) {
         this.setText(message);

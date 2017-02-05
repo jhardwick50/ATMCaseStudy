@@ -27,6 +27,7 @@ public class DepositSlot extends JButton implements ActionListener {
 
             }
         }
+        envelopeReceived = false;
     }
 
     

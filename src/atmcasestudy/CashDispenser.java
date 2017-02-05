@@ -39,6 +39,7 @@ public class CashDispenser extends JButton implements ActionListener{
             print(this.getGraphics());
             setVisible(false);
             setVisible(true);
+            cashInSlot = true;
         }
         
 	

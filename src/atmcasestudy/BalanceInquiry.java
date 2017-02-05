@@ -17,12 +17,14 @@ public class BalanceInquiry extends Transaction {
 		double availableBalance = bankDatabase.getAvailableBalance(getAccountNumber());
 		double totalBalance = bankDatabase.getTotalBalance(getAccountNumber());
 		
-		getScreen().displayMessageLine("\nBalance Information:");
-		getScreen().displayMessage(" - Available balance: ");
+		getScreen().displayMessage("\nBalance Information:\n");
+		getScreen().displayMessageLine(" - Available balance: ");
 		getScreen().displayDollarAmount(availableBalance);
-		getScreen().displayMessage("\n - Total balance:     ");
+		getScreen().displayMessageLine(" - Total balance:     ");
 		getScreen().displayDollarAmount(totalBalance);
 		getScreen().displayMessageLine("");
+                
+                
 	}//end method execute
 }//end class BalanceInquiry
 

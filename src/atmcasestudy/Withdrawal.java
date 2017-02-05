@@ -41,6 +41,7 @@ public class Withdrawal extends Transaction {
 						
 						getScreen().displayMessage("\nYour cash has been dispensed. Please take cash amount.");
                                                 cashDispenser.waitForCashRemoval();
+                                                
 					}else{
 						getScreen().displayMessage("\nInsufficient cash available in the ATM.\nPlease choose a smaller amount.");
 					}//end if
@@ -62,7 +63,7 @@ public class Withdrawal extends Transaction {
 		int[] amounts = { 0, 20, 40, 60, 100, 200 };
 		
 		while(userChoice == 0){
-			getScreen().displayMessage("\nWithdrawal Menu:");
+			getScreen().displayMessage("\nWithdrawal Menu:\n");
 			getScreen().displayMessageLine("1 - $20");
 			getScreen().displayMessageLine("2 - $40");
 			getScreen().displayMessageLine("3 - $60");

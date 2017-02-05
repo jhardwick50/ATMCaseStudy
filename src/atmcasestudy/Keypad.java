@@ -4,6 +4,7 @@ package atmcasestudy;
  * @author Java How to Program Deitel & Deitel Ch.34
  *
  */
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
@@ -18,6 +19,8 @@ public class Keypad extends JPanel implements ActionListener {
     private String input = "";
 
     public Keypad() {
+        this.setLayout(new GridLayout(4, 3));
+
         JButton one = new JButton("1");
         one.addActionListener(this);
         this.add(one);
@@ -54,13 +57,13 @@ public class Keypad extends JPanel implements ActionListener {
         nine.addActionListener(this);
         this.add(nine);
 
-        JButton zero = new JButton("0");
-        zero.addActionListener(this);
-        this.add(zero);
-
         JButton clear = new JButton("Clear");
         clear.addActionListener(this);
         this.add(clear);
+
+        JButton zero = new JButton("0");
+        zero.addActionListener(this);
+        this.add(zero);
 
         JButton enter = new JButton("Enter");
         enter.addActionListener(this);
@@ -69,21 +72,21 @@ public class Keypad extends JPanel implements ActionListener {
     }
 
     public int getInput() {
+        input = "";
         keyValue = "";
         keyPressed = false;
         while (true) {
-            
+
             if (keyPressed) {
-                if (keyValue.equals("Enter")){
+                if (keyValue.equals("Enter")) {
                     break;
-                }
-                else if (keyValue.equals("Clear")) {
+                } else if (keyValue.equals("Clear")) {
                     input = "";
                     System.out.println();
                 } else {
                     input = input + keyValue;
                     System.out.print(keyValue);
-                    
+
                 }
                 keyValue = "";
                 keyPressed = false;
@@ -91,14 +94,47 @@ public class Keypad extends JPanel implements ActionListener {
         }
         int result = Integer.parseInt(input);
         input = "";
-        
+
         return result;
+    }
+
+    public int getKeyPress() {
+        input = "";
+        keyValue = "";
+        keyPressed = false;
+        while (true) {
+
+            if (keyPressed && !keyValue.equals("Enter") && !keyValue.equals("Clear")) {
+                input = keyValue;
+                keyValue = "";
+                keyPressed = false;
+                return Integer.parseInt(input);
+            }
+        }
+
+        
+    }
+    public void waitForKeyPress() {
+        input = "";
+        keyValue = "";
+        keyPressed = false;
+        while (!keyPressed) {
+
+             try {
+                Thread.sleep(10);
+            } catch (InterruptedException ie) {
+
+            }
+            
+        }
+
+        
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        while (keyPressed == true){
-            
+        while (keyPressed == true) {
+
         }
         keyValue = e.getActionCommand();
         keyPressed = true;
