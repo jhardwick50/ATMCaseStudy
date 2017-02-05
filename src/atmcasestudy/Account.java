@@ -1,8 +1,9 @@
 
 package atmcasestudy;
 /**
- * @author Java How to Program Deitel & Deitel Ch.34
- *
+ * CIS 314 Java Programming
+ * Jason Hardwick
+ *  2/5/17
  */
 public class Account {
 	private int accountNumber;

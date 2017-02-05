@@ -1,12 +1,16 @@
 package atmcasestudy;
-
+/**
+ * CIS 314 Java Programming
+ * Jason Hardwick
+ *  2/5/17
+ */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class Screen extends JTextArea implements ActionListener {
+public class Screen extends JTextArea  implements ActionListener{
 
     public void displayMessage(String message) {
         this.setText(message);

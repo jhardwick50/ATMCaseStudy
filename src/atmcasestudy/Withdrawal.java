@@ -2,8 +2,9 @@
 package atmcasestudy;
 
 /**
- * @author Java How to Program Deitel & Deitel Ch.34
- *
+ * CIS 314 Java Programming
+ * Jason Hardwick
+ *  2/5/17
  */
 public class Withdrawal extends Transaction {
 	private int amount;
@@ -72,7 +73,7 @@ public class Withdrawal extends Transaction {
 			getScreen().displayMessageLine("6 - Cancel Transaction");
 			getScreen().displayMessageLine("\nChoose a withdrawal amount: ");
 			
-			int input = keypad.getInput();
+			int input = keypad.getKeyPress();
 			
 			switch(input){
 				case 1:

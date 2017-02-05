@@ -1,13 +1,14 @@
 package atmcasestudy;
-
+/**
+ * CIS 314 Java Programming
+ * Jason Hardwick
+ *  2/5/17
+ */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
-/**
- * @author Java How to Program Deitel & Deitel Ch.34
- *
- */
+
 public class DepositSlot extends JButton implements ActionListener {
 
     private boolean envelopeReceived = false;
@@ -35,7 +36,7 @@ public class DepositSlot extends JButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         envelopeReceived = true;
-        System.out.println("deposit pressed");
+        //System.out.println("deposit pressed");
     }
 
 }

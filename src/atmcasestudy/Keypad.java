@@ -1,18 +1,21 @@
 package atmcasestudy;
 
 /**
- * @author Java How to Program Deitel & Deitel Ch.34
- *
+ * CIS 314 Java Programming
+ * Jason Hardwick
+ *  2/5/17
  */
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 
 public class Keypad extends JPanel implements ActionListener {
-
+    
+    
     private String keyValue = "";
     private boolean keyPressed = false;
 
@@ -20,7 +23,9 @@ public class Keypad extends JPanel implements ActionListener {
 
     public Keypad() {
         this.setLayout(new GridLayout(4, 3));
-
+        
+        
+        
         JButton one = new JButton("1");
         one.addActionListener(this);
         this.add(one);
@@ -69,6 +74,7 @@ public class Keypad extends JPanel implements ActionListener {
         enter.addActionListener(this);
         this.add(enter);
 
+        
     }
 
     public int getInput() {
@@ -86,6 +92,7 @@ public class Keypad extends JPanel implements ActionListener {
                 } else {
                     input = input + keyValue;
                     System.out.print(keyValue);
+                    
 
                 }
                 keyValue = "";
@@ -134,7 +141,7 @@ public class Keypad extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         while (keyPressed == true) {
-
+           
         }
         keyValue = e.getActionCommand();
         keyPressed = true;

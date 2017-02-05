@@ -1,13 +1,14 @@
 package atmcasestudy;
-
+/**
+ * CIS 314 Java Programming
+ * Jason Hardwick
+ *  2/5/17
+ */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
-/**
- * @author Java How to Program Deitel & Deitel Ch.34
- *
- */
+
 public class CashDispenser extends JButton implements ActionListener{
         
         
@@ -61,6 +62,6 @@ public class CashDispenser extends JButton implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         cashInSlot = false;
-        System.out.println(" cash button pressed");
+       // System.out.println(" cash button pressed");
     }
 }//end class CashDispenser

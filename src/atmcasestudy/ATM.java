@@ -2,10 +2,13 @@ package atmcasestudy;
 
 import java.awt.GridLayout;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
- * @author Java How to Program Deitel & Deitel Ch.34
- *
+ * CIS 314 Java Programming
+ * Jason Hardwick
+ *  2/5/17
  */
 public class ATM extends JFrame {
 
@@ -23,7 +26,12 @@ public class ATM extends JFrame {
     private static final int EXIT = 4;
 
     public ATM() {
-        this.setLayout(new GridLayout(4, 1));
+        
+        this.setLayout(new GridLayout(5, 1));
+        JLabel name = new JLabel();
+        name.setText("<html>CIS 314 <br/> Jason Hardwick <br/> 2/5/17</html>");
+        this.add(name);
+        
         userAuthenticated = false;
         currentAccountNumber = 0;
         screen = new Screen();
@@ -36,6 +44,8 @@ public class ATM extends JFrame {
         this.add(keypad);
         this.add(cashDispenser);
         this.add(depositSlot);
+        
+        
     }//end ATM constructor
 
     public void run() {
