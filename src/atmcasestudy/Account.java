@@ -1,11 +1,14 @@
 
 package atmcasestudy;
+
+import java.io.Serializable;
+
 /**
  * CIS 314 Java Programming
  * Jason Hardwick
  *  2/5/17
  */
-public class Account {
+public class Account implements Serializable{
 	private int accountNumber;
 	private int pin;
 	private double availableBalance;

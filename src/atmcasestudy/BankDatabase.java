@@ -1,10 +1,17 @@
 package atmcasestudy;
+
+import java.io.Serializable;
+
 /**
  * CIS 314 Java Programming
  * Jason Hardwick
  *  2/5/17
+ * 
+ * TO DO: make account and bank database serializable.  
+ *        Create a method probably on ATM to save bank database to a file.
+ *        Call method after modifying database (withdraw or deposit) and on Exit.
  */
-public class BankDatabase {
+public class BankDatabase implements Serializable{
 	private Account[] accounts;
 	
 	public BankDatabase() {

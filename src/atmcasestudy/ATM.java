@@ -1,6 +1,9 @@
 package atmcasestudy;
 
 import java.awt.GridLayout;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -48,7 +51,7 @@ public class ATM extends JFrame {
         
     }//end ATM constructor
 
-    public void run() {
+    public void run() throws FileNotFoundException {
         while (true) {
             while (!userAuthenticated) {
                 screen.displayMessageLine("\nWelcome!");
@@ -61,7 +64,20 @@ public class ATM extends JFrame {
             screen.displayMessageLine("\nThank you! Goodbye!");
         }//end while
     }//end method run
-
+    
+    //method to save serialized BankDatabase and therefore Account
+    private void saveDatabase() throws FileNotFoundException{
+        BankDatabase bankDatabase = new BankDatabase();
+        try {
+            FileOutputStream fs = new FileOutputStream("atm.ser");
+            ObjectOutputStream os = new ObjectOutputStream(fs);
+            os.writeObject(bankDatabase);
+            os.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
     private void authenticateUser() {
         screen.displayMessage("\nPlease enter your account number: ");
         int accountNumber = keypad.getInput();
@@ -77,7 +93,7 @@ public class ATM extends JFrame {
         }
     }
 
-    private void performTransactions() {
+    private void performTransactions() throws FileNotFoundException {
         Transaction currentTransaction = null;
         boolean userExited = false;
 
@@ -91,15 +107,20 @@ public class ATM extends JFrame {
                     keypad.waitForKeyPress();
                     break;
                 case WITHDRAWAL:
+                    saveDatabase();
+                    
                 case DEPOSIT:
 
                     currentTransaction = createTransaction(mainMenuSelection);
                     currentTransaction.execute();
                     
+                    saveDatabase();
+                    
                     break;
                 case EXIT:
                     screen.displayMessageLine("\nExiting the System...");
                     userExited = true;
+                    saveDatabase();
                     break;
                 default:
                     screen.displayMessageLine("\nYou did not enter a valid selection. Try again.");
