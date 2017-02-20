@@ -13,7 +13,8 @@ public class Account implements Serializable{
 	private int pin;
 	private double availableBalance;
 	private double totalBalance;
-	
+	private static final long serialVersionUID = 1L;
+        
 	public Account(int theAccountNumber, int thePIN, double theAvailableBalance, double theTotalBalance){
 		accountNumber = theAccountNumber;
 		pin = thePIN;

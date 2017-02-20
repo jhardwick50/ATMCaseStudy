@@ -1,8 +1,10 @@
 package atmcasestudy;
 
 import java.awt.GridLayout;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -51,7 +53,8 @@ public class ATM extends JFrame {
         
     }//end ATM constructor
 
-    public void run() throws FileNotFoundException {
+    public void run()  {
+        loadDatabase();
         while (true) {
             while (!userAuthenticated) {
                 screen.displayMessageLine("\nWelcome!");
@@ -66,7 +69,7 @@ public class ATM extends JFrame {
     }//end method run
     
     //method to save serialized BankDatabase and therefore Account
-    private void saveDatabase() throws FileNotFoundException{
+    private void saveDatabase() {
         BankDatabase bankDatabase = new BankDatabase();
         try {
             FileOutputStream fs = new FileOutputStream("atm.ser");
@@ -75,6 +78,19 @@ public class ATM extends JFrame {
             os.close();
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+    }
+    //Deserialize the database
+    private void loadDatabase() {
+        BankDatabase bankDatabase = new BankDatabase();
+        try {
+            FileInputStream fi = new FileInputStream("atm.ser");
+            ObjectInputStream oi = new ObjectInputStream(fi);
+            bankDatabase = (BankDatabase)oi.readObject();
+            oi.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            
         }
     }
     
@@ -93,7 +109,7 @@ public class ATM extends JFrame {
         }
     }
 
-    private void performTransactions() throws FileNotFoundException {
+    private void performTransactions()  {
         Transaction currentTransaction = null;
         boolean userExited = false;
 

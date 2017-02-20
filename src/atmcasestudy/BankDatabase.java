@@ -7,13 +7,11 @@ import java.io.Serializable;
  * Jason Hardwick
  *  2/5/17
  * 
- * TO DO: make account and bank database serializable.  
- *        Create a method probably on ATM to save bank database to a file.
- *        Call method after modifying database (withdraw or deposit) and on Exit.
  */
 public class BankDatabase implements Serializable{
 	private Account[] accounts;
-	
+	private static final long serialVersionUID = 1L;
+        
 	public BankDatabase() {
 		accounts = new Account[2];
 		accounts[0] = new Account(12345, 54321, 1000.0, 1200.0);
