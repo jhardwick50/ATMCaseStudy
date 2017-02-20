@@ -16,7 +16,7 @@ public class CashDispenser extends JButton implements ActionListener{
 	private int count;
 	private boolean cashInSlot = true;
         
-        
+        //creates cash dispenser button
         @SuppressWarnings("LeakingThisInConstructor")
 	public CashDispenser(){
             super("Cash Slot");
@@ -24,7 +24,7 @@ public class CashDispenser extends JButton implements ActionListener{
 		count = INITIAL_COUNT;
                 addActionListener(this);
 	}//end CashDispenser constructor 
-        
+        //waits for cash dispenser to be pressed
         public void waitForCashRemoval(){
            System.out.println("waiting for cash removal");
             while(cashInSlot){

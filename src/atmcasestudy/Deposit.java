@@ -21,19 +21,20 @@ public class Deposit extends Transaction {
 
     @Override
     public void execute() {
-        BankDatabase bankDatabase = getBankDatabase();
+        
 
         amount = promptForDepositAmount();
 
         if (amount != CANCELED) {
-            getScreen().displayMessage("\nPlease insert a deposit envelope containing ");
-            getScreen().displayDollarAmount(amount);
-            getScreen().displayMessageLine(".");
-
+            String formattedAmount = ATM.formatDollarAmount(amount);
+            getScreen().displayMessage("\nPlease insert a deposit envelope containing " + formattedAmount);
+            
+            
+            
             depositSlot.waitForDeposit();
 
             getScreen().displayMessage("\nYour envelope has been received.\nNOTE: The money just deposited will not be available until we verify the amount of any enclosed cash and your chacks clear.");
-            bankDatabase.credit(getAccountNumber(), amount);
+            getBankDatabase().credit(getAccountNumber(), amount);
 
         } else {
             getScreen().displayMessageLine("\nCanceling transaction...");

@@ -12,14 +12,14 @@ import javax.swing.JButton;
 public class DepositSlot extends JButton implements ActionListener {
 
     private boolean envelopeReceived = false;
-
+//creates deposit slot button with action listener
     public DepositSlot() {
         super("Deposit Slot");
 
         addActionListener(this);
 
     }
-
+//waits for deposit button to be clicked
     public void waitForDeposit() {
         while (!envelopeReceived) {
             try {

@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.DecimalFormat;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -54,7 +55,7 @@ public class ATM extends JFrame {
     }//end ATM constructor
 
     public void run()  {
-        loadDatabase();
+        loadDatabase();  
         while (true) {
             while (!userAuthenticated) {
                 screen.displayMessageLine("\nWelcome!");
@@ -70,7 +71,7 @@ public class ATM extends JFrame {
     
     //method to save serialized BankDatabase and therefore Account
     private void saveDatabase() {
-        BankDatabase bankDatabase = new BankDatabase();
+        
         try {
             FileOutputStream fs = new FileOutputStream("atm.ser");
             ObjectOutputStream os = new ObjectOutputStream(fs);
@@ -82,7 +83,7 @@ public class ATM extends JFrame {
     }
     //Deserialize the database
     private void loadDatabase() {
-        BankDatabase bankDatabase = new BankDatabase();
+        
         try {
             FileInputStream fi = new FileInputStream("atm.ser");
             ObjectInputStream oi = new ObjectInputStream(fi);
@@ -171,4 +172,9 @@ public class ATM extends JFrame {
 
         return temp;
     }//end method creatTransactions
+    
+    public static String formatDollarAmount(double amount) {
+        DecimalFormat myFormatter = new DecimalFormat("$###,###.##");
+        return myFormatter.format(amount);
+    }
 }//end class ATM

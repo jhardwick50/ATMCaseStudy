@@ -9,9 +9,13 @@ import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.event.EventListenerList;
+import javax.swing.plaf.ComponentUI;
 
 public class Screen extends JTextArea  implements ActionListener{
 
+   
+    
     public void displayMessage(String message) {
         this.setText(message);
         System.out.print(message);
@@ -22,15 +26,14 @@ public class Screen extends JTextArea  implements ActionListener{
         System.out.println(message);
     }//end method displayMessageLine
 
-    public void displayDollarAmount(double amount) {
-        DecimalFormat myFormatter = new DecimalFormat("$###,###.##");
-        this.setText(myFormatter.format(amount));
-        System.out.printf("$%,.2f", amount);
-    }//end method displayDollarAmount
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+   
+
+    
 }//end class Screen

@@ -20,7 +20,7 @@ public class Keypad extends JPanel implements ActionListener {
     private boolean keyPressed = false;
 
     private String input = "";
-
+//create keypad with grid layout
     public Keypad() {
         this.setLayout(new GridLayout(4, 3));
         
@@ -76,7 +76,7 @@ public class Keypad extends JPanel implements ActionListener {
 
         
     }
-
+//figure out which button is pressed and waht to do for each.
     public int getInput() {
         input = "";
         keyValue = "";
@@ -104,7 +104,7 @@ public class Keypad extends JPanel implements ActionListener {
 
         return result;
     }
-
+//make sure keys pressed are numbers, not enter or clear.
     public int getKeyPress() {
         input = "";
         keyValue = "";
@@ -121,6 +121,7 @@ public class Keypad extends JPanel implements ActionListener {
 
         
     }
+    //wait for keys to be pressed.
     public void waitForKeyPress() {
         input = "";
         keyValue = "";
